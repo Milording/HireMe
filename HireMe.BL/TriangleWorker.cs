@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HireMe.BL
 {
@@ -42,7 +38,7 @@ namespace HireMe.BL
             if (firstCathetus < 0)
                 throw new ArgumentOutOfRangeException(nameof(firstCathetus),
                     "Doesn't satisfy to restrictions of first cathenus.");
-            else if (secondCathetus < 0)
+            if (secondCathetus < 0)
                 throw new ArgumentOutOfRangeException(nameof(secondCathetus),
                     "Doesn't satisfy to restrictions  of second cathenus.");
 

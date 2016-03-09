@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using NUnit.Framework;
 
 namespace HireMe.BL.Tests
@@ -31,7 +27,7 @@ namespace HireMe.BL.Tests
         {
             try
             {
-                var area = _triangleWorker.CalculateAreaTriangle(-2, 2);
+                _triangleWorker.CalculateAreaTriangle(-2, 2);
 
                 Assert.Fail();
             }
@@ -46,7 +42,7 @@ namespace HireMe.BL.Tests
         {
             try
             {
-                var area = _triangleWorker.CalculateAreaTriangle(2, -2);
+                _triangleWorker.CalculateAreaTriangle(2, -2);
 
                 Assert.Fail();
             }
