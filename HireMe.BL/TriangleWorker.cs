@@ -3,14 +3,14 @@
 namespace HireMe.BL
 {
     /// <summary>
-    /// Math calculating with 
+    /// Math calculating with triangle.
     /// </summary>
     public class TriangleWorker : ITriangleWorker
     {
         #region Private fields
 
         /// <summary>
-        /// Repository
+        /// Repository.
         /// </summary>
         // private readonly IRepository _repository;
 
@@ -19,7 +19,7 @@ namespace HireMe.BL
         #region Constructor
 
         /// <summary>
-        /// If we want to work with files, we can add DI
+        /// If we want to work with files, we can add DI.
         /// </summary>
         //public TriangleWorker(IRepository repository)
         //{
@@ -31,7 +31,7 @@ namespace HireMe.BL
         #region Public methods
 
         /// <summary>
-        /// Implements calculating area of triangle
+        /// Implements calculating area of triangle.
         /// </summary>
         public double CalculateAreaTriangle(double firstCathetus, double secondCathetus)
         {
