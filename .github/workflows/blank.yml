@@ -28,7 +28,16 @@ jobs:
 
     # Runs a set of commands using the runners shell
     - name: Run a multi-line script
-      run: docker run -v $PWD/:/pdf gkmr/pdf-tools pdftoppm /pdf/CV.pdf /pdf/output
+      run: docker run -v $PWD/:/pdf gkmr/pdf-tools pdftoppm -png /pdf/CV.pdf /pdf/output
 
     - name: Test
       run: find . | sed -e "s/[^-][^\/]*\// |/g" -e "s/|\([^ ]\)/|-\1/"
+    
+    - name: First page
+      with:
+        path: output-1.png
+    
+    
+    - name: Second page
+      with:
+        path: output-1.png
