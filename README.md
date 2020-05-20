@@ -1,2 +1,2 @@
-![First Page](./images/output-1.jpg)
-![Second Page](./images/output-2.jpg)
+![First Page](./images/output-1.png)
+![Second Page](./images/output-2.png)
