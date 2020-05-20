@@ -1,2 +1,2 @@
-![First Page](./images/cv-1.jpg)
-![Second Page](./images/cv-2.jpg)git
+![First Page](./images/output-1.jpg)
+![Second Page](./images/output-2.jpg)
