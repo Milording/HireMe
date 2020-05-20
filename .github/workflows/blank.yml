@@ -36,10 +36,12 @@ jobs:
     - name: First page
       uses: actions/upload-artifact@v1
       with:
+        name: image
         path: output-1.png
     
     
     - name: Second page
       uses: actions/upload-artifact@v1
       with:
+        name: image
         path: output-2.png
