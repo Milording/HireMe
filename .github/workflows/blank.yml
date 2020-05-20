@@ -30,8 +30,5 @@ jobs:
     - name: Run a multi-line script
       run: docker run -v $PWD/:/pdf gkmr/pdf-tools pdftoppm /pdf/CV.pdf /pdf/output
 
-    - name: Upload artifact
-      uses: actions/upload-artifact@v1
-      with:
-          name: images
-          path: output-1.png
+    - name: Test
+      run: find . | sed -e "s/[^-][^\/]*\// |/g" -e "s/|\([^ ]\)/|-\1/"
