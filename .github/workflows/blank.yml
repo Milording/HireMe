@@ -33,14 +33,23 @@ jobs:
     - name: Test
       run: find . | sed -e "s/[^-][^\/]*\// |/g" -e "s/|\([^ ]\)/|-\1/"
     
-    - name: Move images
-      run: mkdir --parents ./images/; mv output-1.png $_
-    
     - name: Artifact first page
       uses: actions/upload-artifact@v1
       with:
         name: images
-        path: /images
+        path: output-1.png
+        
+    - name: Artifact second page
+      uses: actions/upload-artifact@v1
+      with:
+        name: images
+        path: output-2.png
+
+    - name: Make directory
+      run: mkdir ./images
+
+    - name: Move images
+      run: mv *.png images
 
     - name: Commit
       uses: zwaldowski/git-commit-action@v1
