@@ -45,12 +45,6 @@ jobs:
         name: image
         path: output-2.png
 
-    - name: Stage
-      run: git add .
-
     - name: Commit
-      run: git commit -m "CI update image"
-    
-    - name: Push
-      run: git push
+      uses: zwaldowski/git-commit-action@v1
 
