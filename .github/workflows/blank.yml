@@ -34,10 +34,12 @@ jobs:
       run: find . | sed -e "s/[^-][^\/]*\// |/g" -e "s/|\([^ ]\)/|-\1/"
     
     - name: First page
+      uses: actions/upload-artifact@v1
       with:
         path: output-1.png
     
     
     - name: Second page
+      uses: actions/upload-artifact@v1
       with:
-        path: output-1.png
+        path: output-2.png
