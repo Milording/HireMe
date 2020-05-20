@@ -46,7 +46,7 @@ jobs:
         path: output-2.png
 
     - name: Make directory
-      run: mkdir ./images
+      run: mkdir -p ./images
 
     - name: Move images
       run: mv *.png images
