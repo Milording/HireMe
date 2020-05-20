@@ -38,10 +38,19 @@ jobs:
       with:
         name: image
         path: output-1.png
-    
-    
+
     - name: Second page
       uses: actions/upload-artifact@v1
       with:
         name: image
         path: output-2.png
+
+    - name: Stage
+      run: git add .
+
+    - name: Commit
+      run: git commit -m "CI update image"
+    
+    - name: Push
+      run: git push
+
