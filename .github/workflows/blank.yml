@@ -1,0 +1,78 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    services:
+      pdf-tool:
+        image: gkmr/pdf-tools
+      
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
+          
+      - name: Run a multi-line script
+        run: docker run -v $PWD/:/pdf gkmr/pdf-tools pdftoppm -png /pdf/CV.pdf /pdf/output
+
+      - name: Test
+        run: find . | sed -e "s/[^-][^\/]*\// |/g" -e "s/|\([^ ]\)/|-\1/"
+    
+      - name: Artifact first page
+        uses: actions/upload-artifact@v1
+        with:
+          name: images
+          path: output-1.png
+
+      - name: Artifact second page
+        uses: actions/upload-artifact@v1
+        with:
+          name: images
+          path: output-2.png
+
+      - name: Make directory
+        run: mkdir -p ./images
+
+      - name: Move images
+        run: mv *.png images
+        
+      - name: Simple commit
+        # You may pin to the exact commit or the version.
+        # uses: zwaldowski/git-commit-action@66730766679672410dc04830ae6389f4376c8c94
+        uses: zwaldowski/git-commit-action@v1
+      
+      - name: GitHub Push
+        # You may pin to the exact commit or the version.
+        # uses: ad-m/github-push-action@40bf560936a8022e68a3c00e7d2abefaf01305a6
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          # Token for the repo. Can be passed in using $\{{ secrets.GITHUB_TOKEN }}
+          github_token: $\{{ secrets.GITHUB_TOKEN }}
+          
